@@ -56,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function draw() {
         cur.forEach((index) => {
             squares[curPos + index].classList.add('tetramino');
+            squares[curPos + index].style.backgroundColor = 'red';
             console.log(squares[curPos + index]);
         });
     }
