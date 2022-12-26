@@ -31,9 +31,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const otetramino = [
         [0, 1, w, 1 + w],
-        [(0, 1, w, 1 + w)],
-        [(0, 1, w, 1 + w)],
-        [(0, 1, w, 1 + w)],
+        [0, 1, w, 1 + w],
+        [0, 1, w, 1 + w],
+        [0, 1, w, 1 + w],
     ];
 
     const itetramino = [
@@ -50,17 +50,28 @@ document.addEventListener('DOMContentLoaded', () => {
         otetramino,
         itetramino,
     ];
-
+    const colors = ['red', 'blue', 'green', 'fuchsia'];
     let curPos = 4;
-    let curRot = 1;
-    let curTet = 0;
+    let curTet = Math.floor(Math.random() * tetraminoes.length);
+    let curRot = Math.floor(Math.random() * tetraminoes[curTet].length);
+    let curCol = colors[Math.floor(Math.random() * colors.length)];
+    // let curCol = 'red';
     let cur = tetraminoes[curTet][curRot];
-    // console.log(cur);
+    console.log(cur);
+
+    // let curTet, curRot, curCol, cur;
+    //genNew();
+    function genNew() {
+        curTet = Math.floor(Math.random() * tetraminoes.length);
+        curRot = Math.floor(Math.random() * tetraminoes[curTet].length);
+        curCol = colors[Math.floor(Math.random() * colors.length)];
+        cur = tetraminoes[curTet][curRot];
+    }
     function draw() {
         cur = tetraminoes[curTet][curRot];
         cur.forEach((index) => {
             squares[curPos + index].classList.add('tetramino');
-            squares[curPos + index].style.backgroundColor = 'red';
+            squares[curPos + index].style.backgroundColor = curCol;
             // console.log(squares[curPos + index]);
         });
     }
@@ -142,11 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
         draw();
     }
     function rotate() {
-        // const isAtLeftEdge = cur.some((index) => {
-        //     return (curPos + index) % w === 0;
-        // });
-
-        // if (isAtLeftEdge) return;
         const n = squares.length;
         for (let i = (curRot + 1) % 4; i != curRot; i = (i + 1) % 4) {
             cur = tetraminoes[curTet][i];
@@ -179,7 +185,56 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         cur = tetraminoes[curTet][curRot];
+    }
 
-        // if (isLeftTaken) return;
+    const timer = setInterval(fun, 1000);
+
+    function fun() {
+        moveDown();
+        if (canFreeze()) {
+            freeze();
+            dropNew();
+        }
+    }
+
+    function canFreeze() {
+        const n = squares.length;
+        const isAtBottomEdge = cur.some((index) => {
+            return curPos + index <= n - 1 && curPos + index >= n - w;
+        });
+
+        if (isAtBottomEdge) return 1;
+
+        const isBottomTaken = cur.some((index) => {
+            return squares[curPos + w + index].classList.contains('taken');
+        });
+
+        if (isBottomTaken) return 1;
+
+        return 0;
+
+        // undraw();
+        // curPos += w;
+        // draw();
+    }
+
+    function freeze() {
+        cur = tetraminoes[curTet][curRot];
+
+        cur.forEach((index) => {
+            squares[curPos + index].classList.add('taken');
+            // squares[curPos + index].style.backgroundColor = colBase;
+            // console.log(squares[curPos + index]);
+        });
+    }
+
+    function dropNew() {
+        // curPos = 4;
+        // curTet = Math.floor(Math.random() * tetraminoes.length);
+        // curRot = 0;
+        // cur = tetraminoes[curTet][curRot];
+        curPos = 4;
+        genNew();
+        draw();
     }
 });
