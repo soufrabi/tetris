@@ -1,17 +1,27 @@
+/* .root { */
+/*   display: flex; */
+/*   margin: auto; */
+/*   justify-content: center; */
+/*   align-items: center; */
+/*   text-align: center; */
+/* } */
+button {
+  margin: 10px;
+}
 .grid {
-    width: 200px;
-    height: 400px;
-    background-color: yellow;
-    display: flex;
-    flex-wrap: wrap;
+  width: 200px;
+  height: 400px;
+  background-color: yellow;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .grid div {
-    height: 20px;
-    width: 20px;
-    background-color: yellow;
+  height: 20px;
+  width: 20px;
+  background-color: yellow;
 }
 
 .tetramino {
-    background-color: red;
+  /* background-color: blue; */
 }
