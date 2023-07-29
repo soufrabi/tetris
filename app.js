@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let squares = Array.from(document.querySelectorAll('.grid div'));
     const w = 10;
     console.log(squares);
+    let score = 0;
+    let lastRow = squares.length / w;
     const ScoreDisplay = document.querySelector('#score');
     const StartBtn = document.querySelector('#start-button');
     const RotateBtn = document.querySelector('#rotate-btn');
@@ -263,6 +265,21 @@ document.addEventListener('DOMContentLoaded', () => {
         // cur = tetraminoes[curTet][curRot];
         curPos = 4;
         genNew();
-        draw();
+        const isTaken = checkOver();
+        if (!isTaken) {
+            draw();
+        } else {
+            alert(`Game Over : Your score is ${score}`);
+            clearInterval(timer);
+        }
     }
+
+    function checkOver() {
+        const isTaken = cur.some((index) => {
+            return squares[curPos + index].classList.contains('taken');
+        });
+        return isTaken;
+    }
+
+    function checkScore() {}
 });
