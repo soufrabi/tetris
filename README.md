@@ -19,14 +19,28 @@
 </p>
 
 
-Basic Tetris Game using HTML,CSS,JS
-
-Click on [link](https://awesomedev12.github.io/Tetris/) to play the game
-
-<p>
-  <h3>Screenshots</h3>
+<p align="center">
+The Classic Game of Tetris
 </p>
 
+## Screenshots
+<div align="center" style=""> 
+
+  <img alt="screenshot1" style="max-width:40vw;" src="https://awesomedev12.github.io/assets/Tetris/screenshots/screenshot1.png">
+  <img alt="screenshot1" style="max-width:40vw;" src="https://awesomedev12.github.io/assets/Tetris/screenshots/screenshot2.png">
+
+</div>
+
+## Quick Start
+Visit 
+<a href="https://awesomedev12.github.io/Tetris/">link</a>
+and start playing now
 
 
+## Author
 
+<a href = "https://awesomedev12.github.io/site" style="text-decoration: none; color: inherit;">Anirban Dey</a>
+
+## License
+
+This project is licensed under the GNU General Public License v3.0 - see the LICENSE.md file for details
