@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //     btn.addEventListener('click', controlButton);
     // });
 
+    StartBtn.addEventListener('click', () => {
+        window.location.reload(true);
+    });
     RotateBtn.addEventListener('click', rotate);
     LeftBtn.addEventListener('click', moveLeft);
     RightBtn.addEventListener('click', moveRight);
