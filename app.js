@@ -5,7 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log(squares);
     const ScoreDisplay = document.querySelector('#score');
     const StartBtn = document.querySelector('#start-button');
-
+    const RotateBtn = document.querySelector('#rotate-btn');
+    const LeftBtn = document.querySelector('#left-btn');
+    const RightBtn = document.querySelector('#right-btn');
+    const DownBtn = document.querySelector('#down-btn');
+    const ControlBtns = [RotateBtn, LeftBtn, RightBtn, DownBtn];
     const colBase = 'yellow';
     //Tetrominoes
     const ltetramino = [
@@ -87,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     draw();
     undraw();
     draw();
-    function control(e) {
+    function controlKey(e) {
         if (e.key == 'ArrowLeft') {
             moveLeft();
         } else if (e.key == 'ArrowRight') {
@@ -98,7 +102,28 @@ document.addEventListener('DOMContentLoaded', () => {
             rotate();
         }
     }
-    document.addEventListener('keydown', control);
+    document.addEventListener('keydown', controlKey);
+
+    // function controlButton(e) {
+    //     if (this.id == 'LeftBtn') {
+    //         moveLeft();
+    //     } else if (this.id == 'RightBtn') {
+    //         moveRight();
+    //     } else if (this.id == 'DownBtn') {
+    //         moveDown();
+    //     } else if (this.id == 'RotateBtn') {
+    //         rotate();
+    //     }
+    // }
+    // ControlBtns.forEach((btn) => {
+    //     btn.addEventListener('click', controlButton);
+    // });
+
+    RotateBtn.addEventListener('click', rotate);
+    LeftBtn.addEventListener('click', moveLeft);
+    RightBtn.addEventListener('click', moveRight);
+    DownBtn.addEventListener('click', moveDown);
+
     function moveLeft() {
         const isAtLeftEdge = cur.some((index) => {
             return (curPos + index) % w === 0;
