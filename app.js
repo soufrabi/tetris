@@ -220,6 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const timer = setInterval(fun, 1000);
 
     function fun() {
+        checkScore();
         moveDown();
         if (canFreeze()) {
             freeze();
@@ -281,5 +282,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return isTaken;
     }
 
-    function checkScore() {}
+    function checkScore() {
+        let flag = true;
+        for (let i = lastRow * w - 1; i >= lastRow * w - w; i--) {
+            if (!squares[i].classList.contains('taken')) flag = false;
+        }
+
+        if (flag) {
+            score += 10;
+            ScoreDisplay.textContent = score;
+            lastRow--;
+        }
+    }
 });
