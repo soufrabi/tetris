@@ -1,7 +1,10 @@
 body {
     background-color: black;
     color: white;
+    display: flex;
+    justify-content: center;
 }
+
 .grid {
     width: 200px;
     height: 400px;
