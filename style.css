@@ -1,3 +1,7 @@
+body {
+    background-color: black;
+    color: white;
+}
 .grid {
     width: 200px;
     height: 400px;
@@ -14,4 +18,32 @@
 
 .tetramino {
     background-color: red;
+}
+
+.button-group {
+    width: 200px;
+    height: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0px;
+}
+
+#rotate-btn {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#left-btn {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+#right-btn {
+    grid-column-start: 3;
+    grid-column-end: 4;
+}
+
+#down-btn {
+    grid-column-start: 2;
+    grid-column-end: 3;
 }
