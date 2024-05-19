@@ -39,7 +39,7 @@ and start playing now
 
 ## Author
 
-<a href = "https://soufrabi.com" style="text-decoration: none; color: inherit;">Anirban Dey</a>
+<a href = "https://anirban.soufrabi.com" style="text-decoration: none; color: inherit;">Anirban Dey</a>
 
 ## License
 
